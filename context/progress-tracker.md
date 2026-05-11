@@ -9,7 +9,8 @@ change.
 
 ## Current Goal
 
-- Complete the `01-design-system` feature: shadcn/ui primitives, shared `cn()` helper, lucide icons, and dark theme tokens.
+- Complete the `02-editor` feature: editor navbar,
+  floating project sidebar, and reusable dialog pattern.
 
 ## Completed
 
@@ -23,6 +24,25 @@ change.
 - Documented concrete design system tokens and conventions in `context/ui-context.md`.
 - Removed an unused starter import from `app/page.tsx` so lint runs cleanly.
 - Verified lint, TypeScript, `cn()` class merging, and production build.
+- Marked `02-editor` as in progress before implementation.
+- Created `components/editor/editor-navbar.tsx` with a
+  fixed-height dark navbar, left/center/right regions, and
+  sidebar toggle icons.
+- Created `components/editor/project-sidebar.tsx` with a
+  floating slide-in sidebar, lowercase projects header,
+  close button, My Projects/Shared tabs, empty states, and
+  full-width New Project action.
+- Added `components/editor/editor-shell.tsx` to frame the
+  current editor page without pushing canvas content.
+- Replaced the starter home page with the editor shell.
+- Confirmed the generated dialog primitives already provide
+  token-based title, description, and footer action support
+  for future dialogs.
+- Verified lint and TypeScript after the final sidebar
+  accessibility tweak. Production build passed once before
+  that tweak; the final build attempt was blocked by the
+  known sandboxed Google font fetch failure and was not
+  rerun with network approval.
 
 ## In Progress
 
@@ -55,5 +75,17 @@ change.
 - The first sandboxed production build failed because Next
   could not fetch Google font assets; the same build passed
   after network approval.
+- After the final sidebar focus-state tweak, lint and
+  TypeScript passed again. The final sandboxed build hit the
+  same Google font fetch failure, and the network-approved
+  rerun was not granted.
 - `git status` could not be run because `d:\ai-ghost` is not
   currently a Git repository.
+- Started editor shell implementation from
+  `context/feature-specs/02-editor.md`.
+- Read the local Next.js 16.2.4 App Router docs for pages,
+  layouts, and server/client component boundaries before
+  implementation.
+- The first sandboxed production build failed because Next
+  could not fetch Google font assets; the same build passed
+  after network approval.
